@@ -1,20 +1,28 @@
 package compose.multiple.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
+import compose.multiple.navigation.graph.Graph
+import compose.multiple.navigation.graph.homeNavGraph
+import compose.multiple.navigation.graph.profileNavGraph
+import compose.multiple.navigation.graph.shopNavGraph
 
 @Composable
 fun MainScreen() {
-}
 
-object Graph {
+    val navController = rememberNavController()
 
-    const val ROOT = "root_graph"
+    NavHost(
+        navController = navController,
+        startDestination = Graph.Home,
+        route = Graph.Root
+    ) {
 
-    const val AUTH = "auth_graph"
+        homeNavGraph(navController = navController)
 
-    const val HOME = "home_graph"
+        shopNavGraph(navController = navController)
 
-    const val SHOP = "shop_graph"
-
-    const val PROFILE = "profile_graph"
+        profileNavGraph(navController = navController)
+    }
 }

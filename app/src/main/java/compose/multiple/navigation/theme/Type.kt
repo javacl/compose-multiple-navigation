@@ -1,4 +1,4 @@
-package compose.multiple.navigation.ui.theme
+package compose.multiple.navigation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
